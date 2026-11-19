@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06130E">
+  <title>Shared Deal | FreeCell Lounge</title>
+  <style>
+    :root {
+      --forest: #06130E;
+      --ivory: #E7D8BB;
+      --mahogany: #89543F;
+      --gold: #C59A56;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--forest);
+      color: var(--ivory);
+      font-family: Georgia, serif;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    main {
+      width: min(100%, 520px);
+      padding: 40px 24px;
+    }
+
+    .cards {
+      color: var(--gold);
+      font-size: 52px;
+      letter-spacing: -8px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: normal;
+      margin: 25px 0 10px;
+    }
+
+    p {
+      line-height: 1.7;
+    }
+
+    .deal {
+      margin: 30px 0;
+      padding: 20px 12px;
+      border: 1px solid var(--mahogany);
+      border-radius: 10px;
+      color: var(--gold);
+      font-family: monospace;
+      font-size: 20px;
+      overflow-wrap: anywhere;
+    }
+
+    button {
+      background: var(--mahogany);
+      color: var(--ivory);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    a {
+      display: block;
+      margin-top: 35px;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .note {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      opacity: 0.7;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="cards" aria-hidden="true">♠ ♥ ♣ ♦</div>
+    <h1>FreeCell Lounge</h1>
+    <p>You've been invited to play a FreeCell deal.</p>
+
+    <div class="deal" id="dealId">Loading deal...</div>
+
+    <button id="copyButton" type="button">
+      Copy Deal ID
+    </button>
+
+    <p class="note" id="message">
+      Open FreeCell Lounge and enter this Deal ID.
+    </p>
+
+    <a href="/">Visit FreeCell Lounge</a>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const dealId = params.get("id");
+    const dealElement = document.getElementById("dealId");
+    const copyButton = document.getElementById("copyButton");
+    const message = document.getElementById("message");
+
+    if (dealId && /^FC1-[A-Za-z0-9-]+$/.test(dealId)) {
+      dealElement.textContent = dealId;
+    } else {
+      dealElement.textContent = "No valid Deal ID provided";
+      copyButton.disabled = true;
+      message.textContent =
+        "Ask the sender for a valid FreeCell Lounge deal link.";
+    }
+
+    copyButton.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(dealId);
+        copyButton.textContent = "Copied!";
+      } catch {
+        message.textContent =
+          "Select the Deal ID above to copy it manually.";
+      }
+    });
+  </script>
+</body>
+</html>
