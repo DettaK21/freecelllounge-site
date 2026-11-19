@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06130E">
+  <meta name="description" content="FreeCell Lounge — a classic card game with a little personality.">
+  <title>FreeCell Lounge</title>
+  <style>
+    :root {
+      --forest: #06130E;
+      --ivory: #E7D8BB;
+      --mahogany: #89543F;
+      --gold: #C59A56;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--forest);
+      color: var(--ivory);
+      font-family: Georgia, "Times New Roman", serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    main {
+      width: min(100%, 650px);
+      padding: 80px 24px 50px;
+      flex: 1;
+    }
+
+    .cards {
+      font-size: 64px;
+      letter-spacing: -12px;
+      margin-bottom: 30px;
+      color: var(--gold);
+    }
+
+    h1 {
+      font-size: clamp(36px, 8vw, 58px);
+      font-weight: normal;
+      margin: 0 0 22px;
+    }
+
+    .tagline {
+      font-size: 19px;
+      line-height: 1.7;
+      color: var(--gold);
+      margin-bottom: 38px;
+    }
+
+    .description {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      opacity: 0.85;
+      margin-bottom: 40px;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 16px 28px;
+      border: 1px solid var(--mahogany);
+      border-radius: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    footer {
+      padding: 25px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      opacity: 0.55;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="cards" aria-hidden="true">♠ ♥ ♣ ♦</div>
+
+    <h1>FreeCell Lounge</h1>
+
+    <p class="tagline">
+      It was once believed that every FreeCell deal
+      could be solved.<br>
+      Except one.
+    </p>
+
+    <p class="description">
+      The classic game of FreeCell, with a little personality.
+      Learn the game, play at your own pace, and challenge
+      yourself one deal at a time.
+    </p>
+
+    <div class="status">
+      ANDROID RELEASE COMING SOON
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 FreeCell Lounge
+  </footer>
+</body>
+</html>
