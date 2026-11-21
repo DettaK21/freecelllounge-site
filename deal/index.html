@@ -57,6 +57,7 @@
       font-family: monospace;
       font-size: 20px;
       overflow-wrap: anywhere;
+      user-select: all;
     }
 
     button {
@@ -67,6 +68,11 @@
       padding: 15px 30px;
       font-size: 16px;
       cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
 
     a {
@@ -105,12 +111,12 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const dealId = params.get("id");
+    const dealId = params.get("id")?.trim().toUpperCase();
     const dealElement = document.getElementById("dealId");
     const copyButton = document.getElementById("copyButton");
     const message = document.getElementById("message");
 
-    if (dealId && /^FC1-[A-Za-z0-9-]+$/.test(dealId)) {
+    if (dealId && /^FC1-[A-F0-9]{32}$/.test(dealId)) {
       dealElement.textContent = dealId;
     } else {
       dealElement.textContent = "No valid Deal ID provided";
