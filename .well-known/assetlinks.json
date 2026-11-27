@@ -7,7 +7,9 @@
       "namespace": "android_app",
       "package_name": "com.freecell.lounge",
       "sha256_cert_fingerprints": [
-        "C4:2E:77:F6:63:47:FF:A6:D6:50:E3:C5:70:5F:62:1E:D1:6F:0B:18:BD:C8:7E:71:35:E8:DA:69:3F:D3:22:26"
+        "C4:2E:77:F6:63:47:FF:A6:D6:50:E3:C5:70:5F:62:1E:D1:6F:0B:18:BD:C8:7E:71:35:E8:DA:69:3F:D3:22:26",
+        "EA:56:7C:33:C0:0B:70:17:32:17:F1:8F:84:CD:54:60:D6:C1:92:D2:1F:0B:8A:76:99:7B:56:16:73:DC:13:62",
+        "69:39:A7:9C:A7:E2:08:96:65:AF:DF:B2:B6:5A:67:B2:09:F2:E7:E7:D5:6F:14:20:92:92:30:B5:0D:D5:E1:8E"
       ]
     }
   }
